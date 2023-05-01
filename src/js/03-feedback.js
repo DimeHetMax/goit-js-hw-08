@@ -21,7 +21,7 @@ function onForm(event){
 
 function OnbtnSubmit(event){
     event.preventDefault()
-    if(event.target.email.value === "" && event.target.message.value === ""){
+    if(event.target.email.value === "" || event.target.message.value === ""){
         return
     }
     const {name: userEmail, message: userMessage} = JSON.parse( localStorage.getItem("feedback-form-state"));
