@@ -17,7 +17,18 @@ function onForm(event){
         feedbackForm.message = event.target.value;
     }
     localStorage.setItem("feedback-form-state",JSON.stringify(feedbackForm));
+    
+    
 }
+
+function fillEmptyFiledsFromLocalStorage(){
+    if(localStorage.getItem("feedback-form-state")){
+        const {name, message} = JSON.parse( localStorage.getItem("feedback-form-state"))
+        form.elements.email.value = name;
+        form.elements.message.value = message;
+    }
+}
+fillEmptyFiledsFromLocalStorage()
 
 function OnbtnSubmit(event){
     event.preventDefault()
