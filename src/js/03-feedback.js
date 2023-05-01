@@ -17,8 +17,6 @@ function onForm(event){
         feedbackForm.message = event.target.value;
     }
     localStorage.setItem("feedback-form-state",JSON.stringify(feedbackForm));
-    
-    
 }
 
 function fillEmptyFiledsFromLocalStorage(){
