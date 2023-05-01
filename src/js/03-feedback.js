@@ -4,7 +4,6 @@ const throttled = throttle(onForm, 500)
 const form = document.querySelector(".feedback-form")
 form.addEventListener("input", throttled)
 form.addEventListener("submit", OnbtnSubmit)
-// console.dir(form.elements.email.value = "23")
 
 const feedbackForm = {
     name: "",
@@ -22,6 +21,9 @@ function onForm(event){
 
 function OnbtnSubmit(event){
     event.preventDefault()
+    if(event.target.email.value === "" && event.target.message.value === ""){
+        return
+    }
     const {name: userEmail, message: userMessage} = JSON.parse( localStorage.getItem("feedback-form-state"));
     feedbackForm.name = userEmail;
     feedbackForm.message = userMessage;
@@ -29,4 +31,3 @@ function OnbtnSubmit(event){
     console.log(feedbackForm)
     event.currentTarget.reset()
 }
-
